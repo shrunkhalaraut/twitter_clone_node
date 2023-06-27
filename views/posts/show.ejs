@@ -1,0 +1,26 @@
+<%- include('../partials/header'); -%>
+<div class="container">
+    <h1 style="text-align: center;"> ADD YOUR POST</h1>
+    <div class="row">
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/post/add" method="POST">
+                <div class="form-group">
+                    <label for="posttitle">Title</label>
+                    <input type="text" class="form-control" id="posttitle" name="title" placeholder="title">
+                </div>
+                <div class="form-group">
+                    <label for="image-link">Image Link</label>
+                    <input type="text" class="form-control" id="image-link" name="image" placeholder="image">
+                </div>
+                <div class="form-group">
+                        <textarea class="form-control" name="content" rows="10" cols="50"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit</button>
+                </div>
+            </form>
+            <a href="/home"> GO Back</a>
+        </div>
+    </div>
+</div>
+<%- include('../partials/footer'); -%>
