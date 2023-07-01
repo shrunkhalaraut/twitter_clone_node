@@ -1,4 +1,4 @@
-const { mongo } = require("mongoose");
+
 
 const mongoose = require("mongoose");
 const url= "mongodb+srv://shrunkhalaraut:D9QoQLb9zGiVi7sJ@cluster0.dwabuzw.mongodb.net/blogdb"

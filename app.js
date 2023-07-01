@@ -1,14 +1,15 @@
 const { default: mongoose } = require("mongoose");
 const express = require ('express');
 const app = express();
-const { connectionMongoDb } = require ("./connection")
-const User= require ('./models');
+const { connectionMongoDB } = require ("./connection")
+const User= require ('./models/user');
 const postRoutes = require('./routes/post')
 const userRoutes = require('./routes/user')
 const session = require('express-session')
+const path = require('path')
 
 //connection to db
-connectionMongoDb();
+connectionMongoDB();
     
 // uses
 app.set('view engine', 'ejs');
@@ -20,6 +21,7 @@ app.use(session({ secret : 'my name is shrunkhala'}))
 // register routes
 app.use('/post', postRoutes)
 app.use('/user', userRoutes)
+app.use('/comments', commentRoutes)
 
 
 app.listen(4444, () => {
