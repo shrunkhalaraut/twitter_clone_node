@@ -24,6 +24,6 @@ app.use('/user', userRoutes)
 app.use('/comments', commentRoutes)
 
 
-app.listen(4444, () => {
+app.listen(8888, () => {
     console.log("server started on 4444")
 })
