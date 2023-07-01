@@ -20,7 +20,9 @@ async function addPosts( req, res) {
     });
     await newPost.save();
     const user = await userModel.findById(userId)
-    allPostByUser = user.addPosts
+    allPostByUser = user.Posts
+
+    allPostByUser.push(newPost._id)
     
     await allPostByUser.findByIdAndUpdate( userId, { post : allPostByUser })
     
@@ -50,7 +52,6 @@ async function deletePost( req, res){
     }
     res.send("hello")
 }
-
 
 
 module.exports = {
