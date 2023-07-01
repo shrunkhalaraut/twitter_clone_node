@@ -7,6 +7,7 @@ const postRoutes = require('./routes/post')
 const userRoutes = require('./routes/user')
 const session = require('express-session')
 const path = require('path')
+const commentRoutes = require('./routes/comment')
 
 //connection to db
 connectionMongoDB();
