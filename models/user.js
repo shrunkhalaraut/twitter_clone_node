@@ -10,6 +10,14 @@ const userSchema = new Schema({
         type : String,
         required : [ true, "password is required"],
     }
+    posts: [
+        {
+            id: {
+                type : [mongoose.Schema.Types.ObjectId],
+                ref: 'post'
+            }
+        }
+    ],
 })
 
 

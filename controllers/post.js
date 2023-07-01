@@ -1,4 +1,5 @@
 const postModel = require('../models/post');
+const userModel = require('../models/user')
 
 async function getAllPosts(req, res) {
     const allPosts = await postModel.find({});
@@ -11,12 +12,18 @@ async function renderAddForm(req, res) {
 
 async function addPosts( req, res) {
     const body = req.body;
+    const userId = req.session.login_id
     const newPost = new postModel({
         title : body.title,
         image: body.image,
         content: body.content,
     });
     await newPost.save();
+    const user = await userModel.findById(userId)
+    allPostByUser = user.addPosts
+    
+    await allPostByUser.findByIdAndUpdate( userId, { post : allPostByUser })
+    
     res.send(newPost);
 }
 
@@ -35,7 +42,7 @@ async function updatePost(req, res) {
 
 async function deletePost( req, res){
     const { id } = req.params;
-    if(req.session.user_id != null && req.session.user_id === id){
+    if(req.session.login_id != null && req.session.login_id === id){
         await postModel.findByIdAndDelete(id);
     }  
     else{

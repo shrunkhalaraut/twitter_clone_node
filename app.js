@@ -1,12 +1,11 @@
-const { default: mongoose } = require("mongoose");
 const express = require ('express');
 const app = express();
 const { connectionMongoDB } = require ("./connection")
-const User= require ('./models/user');
 const postRoutes = require('./routes/post')
 const userRoutes = require('./routes/user')
 const session = require('express-session')
 const path = require('path')
+const ejs = require('ejs')
 const commentRoutes = require('./routes/comment')
 
 //connection to db
