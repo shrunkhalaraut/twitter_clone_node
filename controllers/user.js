@@ -23,6 +23,7 @@ async function login(req, res){
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if(isPasswordValid === true){
         req.session.login_id = user._id;
+    
         res.send("welcome back");
     }
     else{

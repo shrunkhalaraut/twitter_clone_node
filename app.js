@@ -25,5 +25,5 @@ app.use('/comments', commentRoutes)
 
 
 app.listen(8888, () => {
-    console.log("server started on 4444")
+    console.log("server started on 8888")
 })
