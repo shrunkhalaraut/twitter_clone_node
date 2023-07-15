@@ -12,7 +12,7 @@ signupUser = async (req, res) => {
     })
 
     await newUser.save();
-    req.session.user_id = user._id
+    req.session.login_id = user._id
     res.send("user signed up successfully!!")
 }
 
