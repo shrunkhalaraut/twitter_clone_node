@@ -23,6 +23,10 @@ app.use('/post', postRoutes)
 app.use('/user', userRoutes)
 app.use('/comments', commentRoutes)
 
+app.use('*',(req,res)=>{
+    res.status(404)
+    res.send("You entered the wrong route");
+})
 
 app.listen(4444, () => {
     console.log("server started on 4444")

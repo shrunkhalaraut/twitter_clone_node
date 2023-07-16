@@ -17,6 +17,7 @@ async function addPosts( req, res) {
         title : body.title,
         image: body.image,
         content: body.content,
+        author_id: userId,
     });
     await newPost.save();
     const user = await userModel.findById(userId)
@@ -25,7 +26,7 @@ async function addPosts( req, res) {
     allPostByUser.push(newPost._id)
     
     await allPostByUser.findByIdAndUpdate( userId, { post : allPostByUser })
-    
+    res.status(201)
     res.send(newPost);
 }
 

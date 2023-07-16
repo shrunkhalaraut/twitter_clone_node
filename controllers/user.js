@@ -12,7 +12,9 @@ signupUser = async (req, res) => {
     })
 
     await newUser.save();
-    req.session.login_id = user._id
+    req.session.login_id = newUser._id
+
+   
     res.send("user signed up successfully!!")
 }
 
@@ -27,6 +29,7 @@ async function login(req, res){
         res.send("welcome back");
     }
     else{
+        res.status(400)
         res.send("try signup!!")
     }
 }
